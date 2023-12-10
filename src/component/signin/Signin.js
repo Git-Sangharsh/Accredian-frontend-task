@@ -19,10 +19,10 @@ const Signin = () => {
   };
 
   const submitSignup = (e) => {
-    console.log({
-      SignINEmail,
-      SignINPassword,
-    });
+    // console.log({
+    //   SignINEmail,
+    //   SignINPassword,
+    // });
     e.preventDefault();
 
     const signInUserData = {
@@ -33,13 +33,13 @@ const Signin = () => {
     axios
       .post("http://localhost:5000/signin", signInUserData)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         if (response.data.success === "success") {
           setRoute(true);
-          console.log('matching the data')
+          // console.log('matching the data')
         }else if(response.data.error === "incorrect"){
           setPasswordErr(true)
-          console.log('setPassword is ', true)
+          // console.log('setPassword is ', true)
         } else{
           console.log('data is not matching')
         }
@@ -59,7 +59,7 @@ const Signin = () => {
     }
   },[passwordErr])
 
-  console.log('route is ', route);
+  // console.log('route is ', route);
 
   return (
     <div className="signin">
@@ -75,13 +75,13 @@ const Signin = () => {
               <div className="class-inp">
                 <h1 className="input-headers ">Username or Email</h1>
                 <input
-                  type="text"
+                  type="password"
                   className="main-input input-password"
                   onChange={handleSignInEmail}
                 />
                 <h1 className="input-headers">Password</h1>
                 <input
-                  type="text"
+                  type="password"
                   className="main-input input-password"
                   onChange={handleSignInPassword}
                 />
